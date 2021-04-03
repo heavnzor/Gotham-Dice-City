@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/lib/bootstrap.esm.min.js"></script>
+	<script src="js/lib/bootstrap.bundle.min.js"></script>
+	<script>
+		var exports = {
+			"__esModule": true
+		};
+	</script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>The 100th Game</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js/lib/require.js"></script>
+	<script src="js/lib/jquery.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+
+<body>
+	<script src="js/lang.js"></script>
+	<div class="container">
+		<header class="row card-header">
+			<section class="col-md-12 card-title">
+				<h1 id='rulesTitle'>Rules of the 100th Game</h1>
+				<p id='rulesDescription'>The game includes 2 players on one screen. Each player has a temporary score
+					(ROUND) and a
+					global score (GLOBAL). At each turn, the player has his ROUND initialized to 0 and can roll a die as
+					many times
+					as he wants. The result of a roll is added to the ROUND. During his turn, the player can decide at
+					any time
+					to:-Click on the "Hold" option, which allows to send the points of the ROUND to the GLOBAL. This
+					will be the
+					other player's turn. If he rolls a 1, his ROUND score is lost and his turn is over. The first player
+					to reach
+					100 points on global wins the game.
+				</p>
+			</section>
+		</header>
+		<script src="js/rollDice.js"></script>
+		<main class="row card-body">
+			<section class="col-md-4 card-subtitle">
+				<h4 id="playerOne">Player #1</h4>
+				<h4>Global : <span id='globalOne'>0</span></h4>
+			</section>
+			<section class="col-md-3 card-subtitle">
+				<h4>
+					<div id='title'> <span id="round">Round : </span><span id='roundId'>0</span> </div>
+				</h4>
+
+			</section><br>
+			<section class="col-md-4 card-subtitle">
+				<h4 id="playerTwo">Player #2</h4>
+				<h4>Global : <span id='globalTwo'>0</span> </h4>
+			</section>
+		
+		<section><span id='dice'><img width='300px' height='300px' src='dices/1.svg'></span><br>
+		<button id="roll">Roll Dice</button>
+		<button id="add">Add to global</button>
+		</section>	
+		</main>
+		<footer class="row card-footer">
+			<section class="col-md-10"></section>
+		</footer>
+
+	</div>
+
+</body>
+
+</html>
