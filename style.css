@@ -36,6 +36,7 @@ footer {
   margin: auto;
   padding: auto;
   border-radius: 50px !important;
+  font-weight: 300;
 }
 
 .centered {
