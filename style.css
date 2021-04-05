@@ -1,0 +1,66 @@
+* {
+  font-family: Lato;
+  text-align: center;
+}
+#btn {
+  color: white;
+  text-decoration: none !important;
+}
+#btn:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+a {
+  text-decoration: none !important;
+}
+
+.secondPlayer {
+  opacity: 0.5;
+}
+
+body {
+  text-align: center;
+  font-family: 'Lato';
+}
+
+audio {
+  border-radius: 40px;
+}
+
+.header {
+  margin-top: 30px !important;
+  border-radius: 35px !important;
+}
+
+.centered {
+  text-align: center;
+  margin-top: 100px;
+  vertical-align: text-bottom !important;
+}
+#roll{
+  border-radius:50%;
+  width: 100px;
+  height: 100px;
+}
+#hold {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.firstPlayer {
+  background-color: lightblue;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 50px;
+}
+.round {
+  background-color: white;
+}
+.secondPlayer {
+  padding: 15px;
+  margin: 15px;
+  border-radius: 50px;
+  background-color: rgb(250, 144, 144);
+  color: white;
+}

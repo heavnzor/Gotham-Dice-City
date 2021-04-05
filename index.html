@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>The 100th Game - Gotham Version</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="js/lib/react.development.js"></script>
+	<script src="js/lib/react-dom.development.js"></script>
+	<script src="js/lib/jquery.js"></script>
+	<script src="js/lib/babel.min.js"></script>
+	<script src="js/lib/bootstrap.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript" src="js/game.js"></script>
+	<div class="container">
+		<header class="row card-header header">
+			<section class="col-md-12 card-title">
+				<h1 id='rulesTitle'>The 100th Game - Gotham Version</h1><br>
+				<button type="button" class="btn btn-primary"><a id='btn' onclick="history.go(0)">New game</a></button>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rulesMod">
+					Check rules
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="rulesMod" tabindex="-1" aria-labelledby="rulesModLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="rulesModLabel">Rules</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								The game includes <em>2 players on one screen</em>. Each player has a <strong>temporary
+									score
+									(ROUND) and a
+									global score (GLOBAL).</strong> At each turn, the player has his <em>initialized to
+									0</em> and <strong>can roll a die as
+									many times as he wants. </strong>The result of a roll is added to the ROUND. During
+								his turn, the player can decide at
+								any time
+								to: <br><strong>- Click on the "Hold" option</strong>, which allows to send the points
+								of the ROUND to the GLOBAL. This
+								will be the
+								other player's turn. If he rolls a 1, his ROUND score is lost and his turn is over. The
+								first player
+								to reach
+								<strong>100 points on global wins the game.</strong>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				</p><br>
+				<h3>Round score : <span id='roundScore'>0</span> </h3><br>
+				<h3 style="display: none;" id='wining'>Winner : <span id='winner'>Batman</span></h3>
+			</section>
+		</header>
+
+		<main class="row card-body">
+			<section class="col-md-4 card-subtitle firstPlayer" id="firstPlayer">
+				<h3>Batman</h3>
+				<h4>Global : <span id='globalFirstPlayer'>0</span></h4><br>
+				<h5>Current Score : <span id='currentFirstPlayer'>0</span></h5>
+
+				<img class="centered" src='./batman.png' width='200px' height='200px'>
+				<audio id='batman' controls src="batman.mp3" autoplay="true">
+					Your browser does not support the
+					<code>audio</code> element.
+				</audio>
+			</section>
+			<section class="col-md-3 card-subtitle round">
+				<img width='300px' height='300px' id='dice' src='dices/1.svg'><br>
+				<button id="roll" class="btn btn-primary" style='padding:30px; margin:30px;'>Roll</button> <button
+					class="btn btn-primary" style='padding:30px; margin:30px;' id="hold">Hold</button><br>
+			</section>
+			<section class="col-md-4 card-subtitle secondPlayer" id='secondPlayer'>
+				<h3>Joker</h3>
+				<h4>Global : <span id='globalSecondPlayer'>0</span> </h4><br>
+				<h5>Current Score : <span id='currentSecondPlayer'>0</span></h5>
+				<img class="centered" src='./joker_dc.png' width='200px' height='200px'>
+				<audio id='joker' controls src="joker.mp3" autoplay="false">
+					Your browser does not support the
+					<code>audio</code> element.
+				</audio>
+			</section>
+		</main>
+		<footer class="row card-footer">
+			<section class="col-md-10"></section>
+		</footer>
+
+	</div>
+
+</body>
+
+</html>
