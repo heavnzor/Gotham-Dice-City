@@ -1,26 +1,26 @@
 * {
-  font-family: Lato;
-  text-align: center;
+  font-family: Lato !important ;
+  text-align: center !important;
 }
-#btn {
+.btn {
   color: white;
-  text-decoration: none !important;
+  text-decoration: none;
 }
-#btn:hover {
-  color: black !important;
-  text-decoration: none !important;
+.btn:hover {
+  color: black;
+  background-color: yellowgreen;
+  text-decoration: none;
 }
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 .secondPlayer {
   opacity: 0.5;
 }
 
-body {
-  text-align: center;
-  font-family: 'Lato';
+#footer {
+  border-radius: 50px !important;
 }
 
 audio {
@@ -28,17 +28,24 @@ audio {
 }
 
 .header {
-  margin-top: 30px !important;
-  border-radius: 35px !important;
+  margin-top: 30px;
+  border-radius: 50px !important;
+}
+
+footer {
+  margin: auto;
+  padding: auto;
+  border-radius: 50px !important;
 }
 
 .centered {
   text-align: center;
-  margin-top: 100px;
-  vertical-align: text-bottom !important;
+  margin: auto;
+  padding: auto;
+  vertical-align: middle !important ;
 }
-#roll{
-  border-radius:50%;
+#roll {
+  border-radius: 50%;
   width: 100px;
   height: 100px;
 }
@@ -52,7 +59,7 @@ audio {
   color: white;
   padding: 15px;
   margin: 15px;
-  border-radius: 50px;
+  border-radius: 25% 10%;
 }
 .round {
   background-color: white;
@@ -60,7 +67,7 @@ audio {
 .secondPlayer {
   padding: 15px;
   margin: 15px;
-  border-radius: 50px;
+  border-radius: 25% 10%;
   background-color: rgb(250, 144, 144);
   color: white;
 }

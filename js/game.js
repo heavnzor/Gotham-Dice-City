@@ -9,14 +9,13 @@ $(function () {
        - Le résultat d’un lancer est ajouté au ROUND.
        - Lors de son tour, le joueur peut décider à tout moment de:-Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. 
        - Ce sera alors le tour de l’autre joueur. -Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour. 
-       - Le premier joueur qui atteint les 111 points sur global gagne le jeu.
+       - Le premier joueur qui atteint les 100 points sur global gagne le jeu.
+
   */
 
   let dice = $('#dice');
   dice.css('display', 'none');
   var roundScore = $('#roundScore');
-  let wining = $('#wining');
-  let winner = $('#winner');
   let globalFirstPlayer = $('#globalFirstPlayer');
   let globalSecondPlayer = $('#globalSecondPlayer');
   let currentFirstPlayer = $('#currentFirstPlayer');
@@ -32,31 +31,31 @@ $(function () {
   var tempScoreFirstPlayer = 0;
   const scoreToWin = 100;
 
-  const randomNumber = (max, min) => {
+  const randomNumber = (max, min) => { // choix d'un nombre au hasard entre max et min
     console.log("Random number : " + int)
     return int = Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  const displayDice = (int) => {
+  const displayDice = (int) => {   // affiche le dé en fonction du nombre tiré
     dice.css('display', 'block');
     dice.attr('src', `dices/${int}.svg`)
   }
 
-  const hideDice = () => {
+  const hideDice = () => { // cache le dé
     dice.css('display', 'none')
   }
 
-  const launchBatmanSound = () => {
+  const launchBatmanSound = () => { // joue la musique de Batman 
     var y = document.getElementById("batman");
     y.play();
   }
-  const launchJokerSound = () => {
+  const launchJokerSound = () => { // joue le rire du Joker
     var x = document.getElementById("joker");
     x.play();
   }
 
   const gameWon = (players) => {
-    currentFirstPlayer.text("0");
+    currentFirstPlayer.text("0"); // réinitialisation de toutes les variables scores à "0"
     globalFirstPlayer.text("0");
     currentSecondPlayer.text("0");
     globalSecondPlayer.text("0");
@@ -73,7 +72,7 @@ $(function () {
     }
   }
 
-  const checkWin = (playing, globalScore) => {
+  const checkWin = (playing, globalScore) => { // vérifie si le joueur séléctionné a gagné en fonction de son score global
     globalScore = [Number(globalFirstPlayer.text()),Number(globalSecondPlayer.text())]
     console.log(globalScore)
     if (playing === firstPlayer && globalScore[0] >= scoreToWin) {
@@ -83,7 +82,7 @@ $(function () {
     }
   }
 
-  const select = (players) => {
+  const select = (players) => { // selection d'un joueur
     switch (players) {
       case firstPlayer:
         launchBatmanSound()
@@ -102,7 +101,7 @@ $(function () {
     }
   }
 
-  const newRound = (int, players) => {
+  const newRound = (int, players) => { // initialise un nouveau round en fonction du résultat du dé et du joueur selectionné
     roundScore.text(String(int));
     select(players);
     if (playing === firstPlayer && int !== 1) {
@@ -130,13 +129,13 @@ $(function () {
 
 
 
-  roll.on('click', () => {
+  roll.on('click', () => { // event listener sur le bouton roll
     randomNumber(6, 1);
     displayDice(int);
     newRound(int, players);
   })
 
-  hold.on('click', () => {
+  hold.on('click', () => { // event listener sur le bouton hold
 
     hideDice();
     
