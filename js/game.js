@@ -38,7 +38,7 @@ $(function () {
 
   const displayDice = (int) => {   // affiche le dé en fonction du nombre tiré
     dice.css('display', 'block');
-    dice.attr('src', `dices/${int}.svg`)
+    dice.attr('src', `dices/${int}.svg`);
   }
 
   const hideDice = () => { // cache le dé
