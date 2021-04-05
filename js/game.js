@@ -157,8 +157,8 @@ $(function () {
       globalScoreSecondPlayer = globalScoreSecondPlayer + tempScoreSecondPlayer;
       globalSecondPlayer.text(globalScoreSecondPlayer);
       currentSecondPlayer.text("0");
-      console.log(`globalFirstPlayer = ${globalFirstPlayer.text}
-      globalSecondPlayer = ${globalSecondPlayer.text}
+      console.log(`globalFirstPlayer = ${globalFirstPlayer.text()}
+      globalSecondPlayer = ${globalSecondPlayer.text()}
 `);
       checkWin(secondPlayer, globalSecondPlayer.text());
       select(firstPlayer);
