@@ -149,7 +149,6 @@ $(function () {
                   globalSecondPlayer = ${globalSecondPlayer}
       `);
       checkWin(firstPlayer,globalFirstPlayer.text());
-      select(secondPlayer);
     } else if (playing === secondPlayer) {
       tempScoreSecondPlayer = Number(currentSecondPlayer.text());
       let globalScoreSecondPlayer = Number(globalSecondPlayer.text());
