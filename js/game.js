@@ -160,7 +160,6 @@ $(function () {
       globalSecondPlayer = ${globalSecondPlayer.text()}
 `);
       checkWin(secondPlayer, globalSecondPlayer.text());
-      select(firstPlayer);
     }
 
     roundScore.text("0");
