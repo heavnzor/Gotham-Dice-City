@@ -1,4 +1,4 @@
-
+  /*jshint esversion: 6 */
 $(function () {
   /* 
      Règle du jeu
@@ -10,8 +10,9 @@ $(function () {
        - Lors de son tour, le joueur peut décider à tout moment de:-Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. 
        - Ce sera alors le tour de l’autre joueur. -Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour. 
        - Le premier joueur qui atteint les 100 points sur global gagne le jeu.
-
   */
+
+
 
   let dice = $('#dice');
   dice.css('display', 'none');
@@ -32,27 +33,28 @@ $(function () {
   const scoreToWin = 100;
 
   const randomNumber = (max, min) => { // choix d'un nombre au hasard entre max et min
-    console.log("Random number : " + int)
-    return int = Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+    console.log("Random number : " + int);
+    int = Math.floor(Math.random() * (max - min + 1)) + min;
+    return int;
+  };
 
   const displayDice = (int) => {   // affiche le dé en fonction du nombre tiré
     dice.css('display', 'block');
     dice.attr('src', `dices/${int}.svg`);
-  }
+  };
 
   const hideDice = () => { // cache le dé
-    dice.css('display', 'none')
-  }
+    dice.css('display', 'none');
+  };
 
   const launchBatmanSound = () => { // joue la musique de Batman 
     var y = document.getElementById("batman");
     y.play();
-  }
+  };
   const launchJokerSound = () => { // joue le rire du Joker
     var x = document.getElementById("joker");
     x.play();
-  }
+  };
 
   const gameWon = (players) => {
     currentFirstPlayer.text("0"); // réinitialisation de toutes les variables scores à "0"
@@ -61,45 +63,39 @@ $(function () {
     globalSecondPlayer.text("0");
     switch (players) {
       case firstPlayer:
-        alert('Batman won the game!')
+        alert('Batman won the game!');
         newRound(1, firstPlayer); // si Batman arrive à 100, le score est réinitialisé et Joker commence
         break;
       case secondPlayer:
-        alert('Joker won the game!')
+        alert('Joker won the game!');
         newRound(1, secondPlayer); // si Joker arrive à 100, le score est réinitialisé et Batman commence
         break;
 
     }
-  }
+  };
 
-  const checkWin = (playing, globalScore) => { // vérifie si le joueur séléctionné a gagné en fonction de son score global
-    globalScore = [Number(globalFirstPlayer.text()),Number(globalSecondPlayer.text())]
-    console.log(globalScore)
-    if (playing === firstPlayer && globalScore[0] >= scoreToWin) {
-      return gameWon(firstPlayer);
-    } else if (playing === secondPlayer && globalScore[1] >= scoreToWin) {
-      return gameWon(secondPlayer);
-    }
-  }
+
 
   const select = (players) => { // selection d'un joueur
     switch (players) {
       case firstPlayer:
-        launchBatmanSound()
-        currentSecondPlayer.text("0")
+        launchBatmanSound();
+        currentSecondPlayer.text("0");
         currentFirstPlayer.text("0");
         firstPlayer.css('opacity', 1);
         secondPlayer.css('opacity', 0.5);
-        return playing = firstPlayer;
+        playing = firstPlayer;
+        return playing;
       case secondPlayer:
-        launchJokerSound()
-        currentFirstPlayer.text("0")
+        launchJokerSound();
+        currentFirstPlayer.text("0");
         currentSecondPlayer.text("0");
         secondPlayer.css('opacity', 1);
         firstPlayer.css('opacity', 0.5);
-        return playing = secondPlayer;
+        playing = secondPlayer;
+        return playing;
     }
-  }
+  };
 
   const newRound = (int, players) => { // initialise un nouveau round en fonction du résultat du dé et du joueur selectionné
     roundScore.text(String(int));
@@ -124,22 +120,34 @@ $(function () {
       select(firstPlayer);
 
     }
-  }
+  };
 
 
-
+  const checkWin = (playing, globalScore) => { // vérifie si le joueur séléctionné a gagné en fonction de son score global
+    globalScore = [Number(globalFirstPlayer.text()), Number(globalSecondPlayer.text())];
+    console.log(globalScore);
+    if (playing === firstPlayer && globalScore[0] >= scoreToWin) {
+      return gameWon(firstPlayer);
+    } else if (playing === secondPlayer && globalScore[1] >= scoreToWin) {
+      return gameWon(secondPlayer);
+    } else if (playing === secondPlayer) {
+      return newRound(0, firstPlayer);
+    } else if (playing === firstPlayer) {
+      return newRound(0, secondPlayer);
+    }
+  };
 
   roll.on('click', () => { // event listener sur le bouton roll
     randomNumber(6, 1);
     displayDice(int);
     newRound(int, players);
-  })
+  });
 
   hold.on('click', () => { // event listener sur le bouton hold
 
     hideDice();
-    
-    if (playing === firstPlayer) {
+
+    if (playing == firstPlayer) {
       tempScoreFirstPlayer = Number(currentFirstPlayer.text());
       let globalScoreFirstPlayer = Number(globalFirstPlayer.text());
       globalScoreFirstPlayer = globalScoreFirstPlayer + tempScoreFirstPlayer;
@@ -148,8 +156,8 @@ $(function () {
       console.log(`globalFirstPlayer = ${globalFirstPlayer}
                   globalSecondPlayer = ${globalSecondPlayer}
       `);
-      checkWin(firstPlayer,globalFirstPlayer.text());
-    } else if (playing === secondPlayer) {
+      checkWin(firstPlayer, globalFirstPlayer.text());
+    } else if (playing == secondPlayer) {
       tempScoreSecondPlayer = Number(currentSecondPlayer.text());
       let globalScoreSecondPlayer = Number(globalSecondPlayer.text());
       globalScoreSecondPlayer = globalScoreSecondPlayer + tempScoreSecondPlayer;
@@ -163,7 +171,7 @@ $(function () {
 
     roundScore.text("0");
 
-  })
+  });
 
 
 });
