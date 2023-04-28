@@ -1,4 +1,3 @@
-# The-100th-Game
+# The-100ed-Game
 little game in js (using jquery) including 2 players
 
-DEMO : https://piraterie.link/game/
